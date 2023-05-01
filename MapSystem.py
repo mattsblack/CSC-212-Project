@@ -44,9 +44,14 @@ def forFrame(frame_number, output_array, output_count):
                 break
         #if it is not drawn it will draw a new turtle
         if draw:
+            # Because you can only receive a limited amount of information from a 2d image random numbers were used to generate unknown dimensions of the object.
+            # In theory if the robot was able to move i would have been able to replace this part with actual data.
             length = (random.random()+1)*2
             centerx = iwidth/2 + random.random()*20
             centery = length/2 + random.random() *20
+            
+            
+            # Sends data to the a new object and adds it to a list of all objects found in the room.
             new_object = object(name, iwidth, length, centerx, centery)
             objlist.append(new_object)
             
@@ -94,6 +99,7 @@ def draw_map():
             pen.right(90)
             pen.forward(roomWid*25)
             pen.left(90)
+        # Sets bool to true so the map is not redrawn every frame.
         drawn = True
 
     for i in objlist:
